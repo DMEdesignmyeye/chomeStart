@@ -1,0 +1,95 @@
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Producto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" #addProductForm="ngForm" (ngSubmit)="createProduct(addProductForm)">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="productName">Nombre</label>
+              <input type="text" class="form-control" id="productName" name="productName" [(ngModel)]="product.productName" placeholder="Nombre del producto"
+                value="" required>
+              <div class="invalid-feedback">
+                El nombre es obligatorio.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="brand_select">Modelo</label>
+              <input type="text" class="form-control" id="productModel" name="productModel" [(ngModel)]="product.productModel" placeholder="Modelo del producto" value="" required>
+
+              <!-- <select class="form-control" name="productModel" id="productModel"  [(ngModel)]="selectedBrand" required>
+               <option *ngFor="let brand of brands"   [ngValue]="brand">{{brand}}</option>
+              </select> -->
+              <div class="invalid-feedback">
+                El modelo es obligatorio.             </div>
+            </div>
+          </div>
+          <div class="md-3">
+            <label for="productMedidas">Medidas:</label>
+            <input type="number" name="productMedidas" class="form-control" [(ngModel)]="product.productMedidas"  id="productMedidas" value="" required>
+            X
+            <input type="number" name="productMedidas2" class="form-control" [(ngModel)]="product.productMedidas2"  id="productMedidas2" value="" required>
+
+            <div class="invalid-feedback">
+            Las Medidas son obligatorias.
+            </div>
+            </div>
+
+          <div class="row">
+
+
+            <div class="col-md-6 mb-3">
+            <label for="money_select">Material:</label>
+            <input type="text" class="form-control" id="productMaterial" name="productMaterial" [(ngModel)]="product.productMaterial" placeholder="Material del producto" value="" required>
+
+            <!-- <select class="form-control" name="productMaterial" id="productMaterial"  [(ngModel)]="selectedMoney" required>
+              <option *ngFor="let money of moneys" [ngValue]="money">{{money}}</option>
+            </select> -->
+
+            <div class="invalid-feedback">
+             El Material es obligatorio.
+            </div>
+          </div>
+            <div class="col-md-6 mb-3">
+            <label for="productColor">Color:
+              <span class="text-muted">(Opcional)</span>
+            </label>
+            <input type="text" class="form-control" id="productColor" placeholder="Color" name="productColor" value=""
+              [(ngModel)]="product.productColor">
+            </div>
+          </div>
+           
+ 
+          <div class="md-3">
+            <label for="productImageUrl">Imágen del producto</label>
+            <input type="text" class="form-control" id="productImageUrl" [(ngModel)]="product.productImageUrl" name="productImageUrl"
+              placeholder="Imagen Url 1" required>
+          </div>
+          <div class="md-3">
+            <label for="productImageUrl2">Imágen del producto</label>
+            <input type="text" class="form-control" id="productImageUrl2" [(ngModel)]="product.productImageUrl2" name="productImageUrl2"
+              placeholder="Imagen Url 2" required>
+          </div>
+          <div class="md-3">
+            <label for="productImageUrl3">Imágen del producto</label>
+            <input type="text" class="form-control" id="productImageUrl3" [(ngModel)]="product.productImageUrl3" name="productImageUrl3"
+              placeholder="Imagen Url 3" required>
+          </div>
+          <div class="md-3">
+            <label for="productImageUrl4">Imágen del producto</label>
+            <input type="text" class="form-control" id="productImageUrl4" [(ngModel)]="product.productImageUrl4" name="productImageUrl4"
+              placeholder="Imagen Url 4" required>
+          </div>
+          <button class="btn btn-gray" type="submit"  style="background-color: green">Agregar Producto</button>
+        </form>
+      </div>
+      </div>
+    </div>
+
+  </div>

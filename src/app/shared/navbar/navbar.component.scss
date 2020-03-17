@@ -1,0 +1,46 @@
+.navbar {
+    background-color: grayscale($color: #504e4e) !important;
+    color: white !important;
+padding-top:-18px; 
+    }
+    .navbar-collapse::after {
+        background-color: grayscale($color: #50565cbd) !important;
+        color: white  !important;
+        }
+.collapse:not(.show) {
+    display: block;
+}
+.dropdown-menu::before .dropdown-item .navbar-brand {
+    color: white !important;
+    color: white !important;
+}
+.nav-link {
+    display:  grid !important;
+}
+.nav-down {
+    position: inherit !important; 
+}
+.btn-block {
+  display: table !important;
+}
+.navbar .navbar-nav{
+    color: white !important;
+}
+.dropdown-menu .dropdown-item {
+    
+    color: white !important;
+    background-color: #50565cbd !important;
+    height: auto !important;
+    width: auto !important;
+}
+.btn{
+    width: auto !important;
+}
+@media (max-width: 767px){
+.navbar .navbar-nav .dropdown-menu {
+    height: auto !important;
+}
+}
+.navbar-alt {
+    height: 50px;
+}

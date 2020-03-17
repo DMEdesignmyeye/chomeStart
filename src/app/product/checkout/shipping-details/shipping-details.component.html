@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <div class="col-md order-md-1">
+    <h4 class="mb-3">Datos de Contácto</h4>
+    <form class="needs-validation" #userDetailsForm="ngForm" (ngSubmit)="updateUserDetails(userDetailsForm)">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Nombre</label>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="userDetail.firstName" name="firstName"
+            required>
+          <div class="invalid-feedback">
+            El Nombre es Obligatorio.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Apellido</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="userDetail.lastName" name="lastName"
+            required>
+          <div class="invalid-feedback">
+              El Apellido es Obligatorio.
+          </div>
+        </div>
+
+      <div class="mb-3">
+        <label for="email">Email
+          <span class="text-muted">(Opcional)</span>
+        </label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="userDetails.emailId" name="email" [disabled]="true">
+        <div class="invalid-feedback">
+            El Email es Obligatorio.
+        </div>
+      </div>
+    </div>
+
+      <hr class="mb-4">
+      <button class="btn btn-gray" type="submit">Continuar</button>
+    </form>
+  </div>

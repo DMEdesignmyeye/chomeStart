@@ -1,0 +1,49 @@
+<div class="container mt-3"  style="margin-top:1%">
+  <div class="col-md order-md-1">
+    <h4 class="mb-3">Datos de contacto </h4>
+
+
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" novalidate>
+      <div class="card-body">
+
+             <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="firstName ">Nombre</label>
+                          <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+                          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                              <div *ngIf="firstName.errors.required">Es obligatorio ingresar su Nombre</div>
+                          </div>
+                      </div>
+
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                              <div *ngIf="email.errors.required">El Email es obligatrorio</div>
+                              <div *ngIf="email.errors.email">Es obligatorio ingresar su Email</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label ">Asunto</label>
+                  <input type="text" class="form-control" name="asunto" [(ngModel)]="model.asunto" #asunto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && asunto.invalid }" required asunto >
+              </div>
+              <div class="form-group">
+                  <label class="control-label ">Escriba su mensaje</label>
+                  <textarea class="form-control" cols="30" rows="6" name="mensaje" [(ngModel)]="model.mensaje" #mensaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mensaje.invalid }" required mensaje></textarea>
+              </div>
+
+          <div class="row">
+
+              <div class="col-md-8">
+                  <button class="btn btn-rose pull-right">Enviar</button>
+              </div>
+          </div>
+      </div>
+  </form>
+  </div>
+</div>

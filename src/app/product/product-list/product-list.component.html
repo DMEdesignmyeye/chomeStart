@@ -1,0 +1,103 @@
+ 
+      <!-- <div class="col-md-3">
+        
+        <div class="card">
+            <div class="card card-refine">
+          <label for="brand_select" style="font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Categoria de la propiedad:</label>
+          <select class="form-control" name="productCategory" id="productCategory"  [(ngModel)]="selectedBrand" required>
+            <option *ngFor="let brand of brands"  [ngValue]="brand">{{brand}}</option>
+          </select>
+          
+        </div>
+        
+        <div class="card card-refine">
+        <label for="state_select" style="font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Operación: </label>
+        <select class="form-control" name="productQuatity" id="productQuatity"  [(ngModel)]="selectedState" required>
+          <option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+        </select>
+        
+      </div>
+        <div class="card card-refine">
+        <label for="disp_select" style="font-weight: 600; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Estado:</label>
+        <select class="form-control" name="productState" id="productState"  [(ngModel)]="selectedDisp" required>
+          <option *ngFor="let disp of dispo" [ngValue]="disp">{{disp}}</option>
+        </select>
+        
+      </div>
+    </div>
+    </div> -->
+
+
+      <div class="container">
+        <div class="row" *ngIf="authService.isAdmin()">
+          <div class="col-sm">
+            <div class="float-right" style="margin-top:2%">
+              <button type="button" class="btn btn-primary waves-light"  style="background-color: green" data-toggle="modal" data-target="#exampleModalLong">
+                Agregar Producto
+              </button>
+            </div>
+          </div>
+        </div>
+        <app-card-loader [loop]="3" [height]="800" *ngIf="loading"></app-card-loader>
+        <div class="row" *ngIf="!loading">
+          <!-- List of Products -->
+          <div class="col-sm-4 mb-2" *ngFor="let product of productList | filterByBrand: selectedBrand  | filterByDisp: selectedDisp | filterByState: selectedState |  paginate: {  itemsPerPage: 6, currentPage: page }">
+            <div class="item">
+              <div class=" mb-r">
+                <div class="card card-profile">
+                  <a [routerLink]="['/products/product', product.$key]">
+                    <div class="view overlay hm-white-slight">
+                      <img [src]="product.productImageUrl" class="img-fluid" alt="" width="360px" height="360px">
+                      <a>
+                        <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                      </a>
+                    </div>
+                  </a>
+                  <div class="card-body text-center no-padding">
+												<a href="" class="text-muted"  style="margin-bottom: 0px">
+                            <h3 style="font-size:12px !important">{{ product.productCategory }}</h3>
+                          </a>
+                      <a href="" class="text-muted" style="margin-top: 0px; margin-bottom: 0px">
+                        <h6 style="font-weight: bold">{{ product.productQuatity }}</h6>
+                      </a> 
+
+                        <a class="text-muted" [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active">
+                          <h4 style="font-size:18px !important; font-weight: bold">{{product.productName }}</h4>  </a>
+
+                    <p class="card-text" style="font-size:12px;">{{ product.productDescription }}
+                    </p>
+                    <p class="card-text" style="font-size:12px;">{{ product.productState }}
+                    </p>
+
+                    <div class="card-footer">
+
+                      <span class="left" style="font-size:14px ; font-weight: 400">  {{ product.productSeller }}{{ product.productPrice }}</span>
+                      <span class="right">
+                        <a placement="top"  mdbTooltip="Agregar a favoritos" container="body" (click)="addFavourite(product)">
+                          <i  style="font-size:13px !important;" class="fa fa-heart"></i>
+                        </a>
+                        <a placement="top" mdbTooltip="Agregar al Carro" container="body" (click)="addToCart(product)">
+                          <i  style="font-size:13px !important;" class="fa fa-shopping-cart"></i>
+                        </a>
+                        <a placement="top" mdbTooltip="Eliminar Propiedad" container="body" *ngIf="authService.isAdmin()"
+                          (click)="removeProduct(product.$key)">
+                          <i  style="font-size:13px !important;" class="fa fa-trash"></i>
+                        </a>
+                      </span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="text-center mt-3">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+  <app-footer></app-footer>
+<app-add-product></app-add-product>

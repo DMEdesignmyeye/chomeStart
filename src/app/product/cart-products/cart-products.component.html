@@ -1,0 +1,78 @@
+<div class="wrapper">
+<br>
+<div class="container" *ngIf="cartProducts.length > 0"  style="margin-top:2%">
+  <div class="row">
+    <!-- List of Products -->
+    <div class="col-8" style="max-width: 100%; flex:1%">
+      <div class="row">
+       <div class="col-6" style="max-width: 100%; flex:none" *ngFor="let product of cartProducts"> 
+                <div class="card card-plain card-blog text-center">
+                    <div class="card-image">  
+                        <a [routerLink]="['/products/product', product.$key ]">
+
+                          <div class="view overlay hm-white-slight">
+                            <img [src]="product.productImageUrl" class="img-fluid" alt="" width="360px" height="640px">
+                            <a>
+                              <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                            </a>
+                          </div>
+                        </a>
+        
+                    </div>
+                    <div class="card-body">
+                      <h6 class="card-category text-warning">
+                        {{ product.productCategory }} </h6>
+                      <a class="text-muted" [routerLink]="['/products/product', product.$key]" routerLinkActive="router-link-active">
+                        <h3 class="card-title"> 
+                          {{product.productName }} 
+                        </h3>
+                      </a>
+                      <p class="card-description"> 
+                        {{ product.productDescription }} 
+                      </p>
+                      <br />
+                      <div class="card-footer">
+                      
+                          <div class="article-footer">
+  
+                          <div class="container">
+                              <div class="row">
+                                 
+  
+                          <div class="col-md-6 col-6"  style="max-width: 100%; flex:none">
+                              <a placement="top" mdbTooltip="Ver" container="body" [routerLink]="['/products/product', product.$key]">
+                                <i class="fa fa-eye"></i>
+                              </a>
+                              <a placement="top" mdbTooltip="Eliminar Propiedad" container="body" (click)="removeCartProduct(product)">
+                                <i class="fa fa-trash"></i>
+                              </a>
+                          </div>
+                          <div class="col-md-6 col-6"  style="max-width: 100%; flex:none"> 
+                      <a>
+                        {{ product.productSeller }}
+                      </a>
+                      <a>
+                        {{ product.productPrice }}
+                      </a>  
+  
+                          </div>
+                        </div>
+                        
+                    </div>
+                  </div> 
+            </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+    </div>
+    <div class="col-4" style="max-width: 100%; flex:2%">
+      <app-cart-calculator [products]="cartProducts"></app-cart-calculator>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container" *ngIf="cartProducts.length === 0">
+  <app-no-products-found [title]="messageTitle" [description]="messageDescription"></app-no-products-found>
+</div>

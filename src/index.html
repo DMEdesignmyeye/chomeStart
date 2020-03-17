@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8" />
+  
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <meta charset="utf-8">
+    <title>C-Home - Muebles de diseños a medida</title>
+    <base href="/">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="logo.png">
+   
+    <style>
+      .splash {
+        position: absolute;
+        z-index: 2000;
+        background: white;
+        color: gray;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0
+      }
+  
+      .splash-title {
+        text-align: center;
+        max-width: 500px;
+        margin: 15% auto;
+        padding: 20px
+      }
+  
+      .splash-title h1 {
+        font-size: 26px
+      }
+  
+      .color-line {
+        border-radius: 4px 4px 0 0
+      }
+  
+    </style>
+    <script>
+      var global = global || window;
+      var Buffer = Buffer || [];
+      var process = process || {
+        env: {
+          DEBUG: undefined
+        },
+        version: []
+      };
+  
+    </script>
+  </head>
+  
+  <body>
+    <app-root>
+      <!-- Show simple splash screen-->
+      <div class="splash">
+        <div class="color-line"></div>
+        <div class="splash-title">
+        <img src="./assets/img/logo.png" width="90" height="90" style="margin-bottom: 1px" />
+  
+        </div>
+      </div>
+    </app-root>
+    <noscript>Por favor Active JavaScript.</noscript>
+  
+  </body>
+  
+  </html>

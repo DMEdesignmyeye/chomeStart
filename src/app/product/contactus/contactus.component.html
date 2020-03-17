@@ -1,0 +1,105 @@
+
+
+<div class="wrapper">
+    <div class="section section-gray"  style="background-image: url('./assets/img/h511.jpg'); background-size: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+                    <div class="angular-logo" style="margin-bottom: -5%">
+                        <img src="../../assets/img/bgC - Home.png" alt="" sstyle="width:106%;box-shadow: none;margin-top: 97%;">
+                      </div>
+                    <h2 class="title" style="color:white ; font-weight: bold">Comuniquesé con nosotros
+                    </h2>
+                    <p style="color:white;" >Comuníquese con nosotros aquí, en C - Home estaremos encantados de responder sus consultas generales, de ventas o de servicio al cliente...</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                    <h3 class="title"><small>Nuestras redes sociales</small></h3>
+                    <button class="btn btn-border btn-magnify btn-facebook">
+                        <i class="fa fa-facebook"></i>
+                    </button>
+                    <button class="btn btn-border btn-magnify btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </button>
+                   <button class="btn btn-border btn-magnify btn-pinterest">
+                        <i class="fa fa-instagram"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                    <h3 class="title"><small>Envíenos un mensaje</small></h3>
+                    <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" novalidate>
+                      <div class="card-body">
+
+                             <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label for="firstName" style="color:white !important ; font-weight:bold">Nombre</label>
+                                          <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+                                          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                                              <div *ngIf="firstName.errors.required">Es obligatorio ingresar su Nombre</div>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label for="email" style="color:white !important ; font-weight:bold">Email</label>
+                                          <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                                          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                                              <div *ngIf="email.errors.required">El Email es obligatrorio</div>
+                                              <div *ngIf="email.errors.email">Es obligatorio ingresar su Email</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="control-label" style="color:white !important ; font-weight:bold">Asunto</label>
+                                  <input type="text" class="form-control" name="asunto" [(ngModel)]="model.asunto" #asunto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && asunto.invalid }" required asunto >
+                              </div>
+                              <div class="form-group">
+                                  <label class="control-label" style="color:white !important ; font-weight:bold">Escriba su mensaje</label>
+                                  <textarea class="form-control" cols="30" rows="6" name="mensaje" [(ngModel)]="model.mensaje" #mensaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mensaje.invalid }" required mensaje></textarea>
+                              </div>
+
+                          <div class="row">
+
+                              <div class="col-md-8">
+                                  <button class="btn btn-rose pull-right">Enviar</button>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="big-map">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [styles]="styles">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+</div>
+
+<footer class="footer section-nude">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">C - Home Brasil</a></li>
+                    <li><a href="#">Ventas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    © 2018 - Todos los derechos reservados - Powered <i class="fa fa-heart heart"></i> by DME Team
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
