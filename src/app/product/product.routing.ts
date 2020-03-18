@@ -9,8 +9,7 @@ import { ContactusComponent } from "./contactus/contactus.component";
 import { AddProductComponent } from './add-product/add-product.component'; 
 import { BrowserModule } from '@angular/platform-browser'; 
 import { CommonModule } from "@angular/common";
-import { NgModule } from '@angular/core';
-import { CheckoutModule } from './checkout/checkout.module';
+import { NgModule } from '@angular/core'; 
 export const ProductRoutes: Routes = [
 	{
 		path: 'products',
