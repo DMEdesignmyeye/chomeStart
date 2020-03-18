@@ -42,8 +42,8 @@
 
 
 /** Evergreen browsers require these. **/
-import 'core-js/es6/reflect';
-import 'core-js/es7/reflect';
+import 'core-js/es/reflect';
+import 'core-js/es/reflect';
 import '@angular/localize/init';
 
 /** ALL Firefox browsers require the following to support**/ `@angular/animation`
