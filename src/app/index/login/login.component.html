@@ -1,9 +1,50 @@
 
+
+  <!--Modal: Register Form-->
+  <div class="modal fade" id="createUserForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+      <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+        <div class="modal-content">
+
+          <div class="modal-header light-blue darken-3 white-text"> 
+            <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="title">
+              <i class="fa fa-user-plus"></i> Registrarme</h4>
+            
+          </div>
+          <div class="modal-body">  
+            <div class="alert alert-danger" role="alert" *ngIf="errorInUserCreate">
+              {{errorMessage.message}}
+            </div>
+            <div class="form-group form-sm">
+              <label for="emailId">Ingrese su  email</label>
+              <input mdbActive type="email" id="emailId" class="form-control" name="emailId" [(ngModel)]="createUser.emailId"
+                placeholder="Email" mdbInputValidate [email]="true" autocomplete="email">
+            </div>
+            <div class="form-group form-sm">
+              <label for="password">Contraseña</label>
+              <input mdbActive type="password" id="password" class="form-control" name="password" [(ngModel)]="createUser.password"
+                placeholder="Contraseña" mdbInputValidate autocomplete="new-password">
+            </div>
+            <div class="text-center mt-2">
+              <button class="btn btn-gray" id="signUpButton" mdbRippleRadius>Registrar
+                <i class="fa fa-sign-in ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 <div class="wrapper">
     <div class="page-header" style="background-image: url('./assets/img/bg.jpg')">
    
-      <!-- Login form -->
-      <div class="col-md-12">
+      <!-- Login form -->    <div class="container">
+      <!-- Login form -->    <div class="col-md-6">
+      <!-- Login form -->    <div class="row">
+        <div class="card card-contact card-raised"  style="margin-top:5%">
         <form #loginForm="ngForm" (ngSubmit)="signInWithEmail(loginForm)">
     
             <div class="angular-logo" style="margin-top:2%">
@@ -32,12 +73,16 @@
             </button>
     
           </div>
-        </form>
-      </div>
+        </form> 
       <br>
       <p>Eres Nuevo?
         <a data-toggle="modal" data-target="#createUserForm" style="color:dodgerblue">Registrate ahora!</a>
       </p>
       
+    </div>
+</div>
+
+</div>
+</div> 
 </div> 
 </div>
